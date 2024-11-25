@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Crop Tool</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="crop-area">
+            <img src="images/tile01.jpg" alt="Image to crop" id="image" crossorigin="anonymous">
+            <div class="crop-overlay" id="crop-overlay">
+                <div class="resize-handle" id="resize-handle"></div>
+            </div>
+        </div>
+        <button id="crop-button">Crop</button>
+    </div>
+    
+    <div class="controls">
+        <button id="reload-6x6">Reload into 6x6 Grid</button>
+        <button id="reload-5x5">Reload into 5x5 Grid</button>
+        <button id="reload-4x4">Reload into 4x4 Grid</button>
+        <input type="file" id="image-upload" accept="image/*">
+    </div>
+    
+    
+    <div class="cropped-images-row" id="cropped-images-row"></div>
+    
+    <div class="cropped-images-grid" id="cropped-images-grid"></div>
+    
+    <canvas id="canvas"></canvas>
+    <script src="script.js"></script>
+</body>
+</html>

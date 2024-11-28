@@ -37,7 +37,6 @@ imageUpload.addEventListener('change', (e) => {
 
 // Handle mouse drag events
 cropOverlay.addEventListener('mousedown', (e) => {
-    if (e.target === resizeHandle) return;
     isDragging = true;
     startX = e.clientX - cropOverlay.offsetLeft;
     startY = e.clientY - cropOverlay.offsetTop;
@@ -83,7 +82,10 @@ document.addEventListener('mouseup', () => {
 
 // Handle touch drag events for mobile
 cropOverlay.addEventListener('touchstart', (e) => {
-    if (e.target === resizeHandle) return;
+    e.preventDefault();
+    console.log("touchstart target: " + e.target)
+    console.log("touchstart target: " + e.target + " id" + e.target.id)
+    if (e.target.id != "crop-overlay") return;
     isDragging = true;
     startX = e.touches[0].clientX - cropOverlay.offsetLeft;
     startY = e.touches[0].clientY - cropOverlay.offsetTop;
@@ -91,6 +93,7 @@ cropOverlay.addEventListener('touchstart', (e) => {
 
 // Handle touch move events for mobile
 document.addEventListener('touchmove', (e) => {
+    //e.preventDefault();
     if (isDragging) {
         const containerRect = cropOverlay.parentElement.getBoundingClientRect();
         const newLeft = Math.min(
@@ -122,7 +125,8 @@ document.addEventListener('touchmove', (e) => {
 });
 
 // Handle touch end events for mobile
-document.addEventListener('touchend', () => {
+document.addEventListener('touchend', (e) => {
+    e.preventDefault();
     isDragging = false;
     isResizing = false;
 });
@@ -139,6 +143,7 @@ resizeHandle.addEventListener('mousedown', (e) => {
 
 // Handle resize touch events for mobile
 resizeHandle.addEventListener('touchstart', (e) => {
+    e.preventDefault();
     e.stopPropagation();
     isResizing = true;
     startX = e.touches[0].clientX;

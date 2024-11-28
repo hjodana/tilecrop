@@ -93,7 +93,6 @@ cropOverlay.addEventListener('touchstart', (e) => {
 
 // Handle touch move events for mobile
 document.addEventListener('touchmove', (e) => {
-    //e.preventDefault();
     if (isDragging) {
         const containerRect = cropOverlay.parentElement.getBoundingClientRect();
         const newLeft = Math.min(

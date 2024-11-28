@@ -125,7 +125,7 @@ document.addEventListener('touchmove', (e) => {
 
 // Handle touch end events for mobile
 document.addEventListener('touchend', (e) => {
-    e.preventDefault();
+    //e.preventDefault();
     isDragging = false;
     isResizing = false;
 });

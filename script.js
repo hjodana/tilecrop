@@ -193,7 +193,7 @@ function displayCroppedImage(dataURL) {
     img.src = dataURL;
 
     const removeButton = document.createElement('button');
-    removeButton.textContent = 'Remove';
+    removeButton.textContent = 'X';
     removeButton.addEventListener('click', () => {
         croppedItem.remove();
         croppedImages = croppedImages.filter((src) => src !== dataURL);
